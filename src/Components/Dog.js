@@ -30,6 +30,8 @@ function Dog() {
       });
 
       console.log(createDog);
+      console.log("are you working");
+
 
       setNewName("")
       setNewAge("")

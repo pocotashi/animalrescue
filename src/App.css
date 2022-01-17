@@ -62,6 +62,22 @@
   color: white;
 }
 
-.shop {
-  background-color: #BAFFB4;
+
+
+.displayItems {
+    margin: auto;
+    padding: 3% 1%;
+    text-align: center;
+
+}
+
+.cardShop {
+  border: none !important;
+
+}
+
+.yourCart {
+    margin: auto;
+    padding: 3% 1%;
+    text-align: center;
 }

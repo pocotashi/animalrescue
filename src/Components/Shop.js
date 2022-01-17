@@ -3,6 +3,8 @@ import {db} from "../firebase-config";
 import { collection, getDocs, deleteDoc, doc, addDoc} from "firebase/firestore"
 import NavBar from '../Navbar';
 import Footer from '../Footer';
+import {Row, Col, Card, Container} from "react-bootstrap";
+
 
 function Shop () {
 
@@ -18,7 +20,7 @@ function Shop () {
     const createItem = async () => {
         await addDoc(itemsCollectionRef, 
             {
-               name: newItem,
+                name: newItem,
                 price: Number(newPrice), 
             });
     
@@ -33,6 +35,8 @@ function Shop () {
                name: item.name,
                price: item.price
             });
+
+            console.log('are you working or nah?')
 
     }
 
@@ -72,14 +76,15 @@ function Shop () {
             
             <button onClick={createItem}> Create New Item</button>
 
+            <div className='displayItems'>
             <h1>Shop</h1>
 
-            {items.map((item) => {
+            {/* {items.map((item) => {
               return (
                 <div key={item.id}>
                     {" "}
                     <h3>Name: {item.name}</h3>
-                    <h3>Price: {item.price}</h3>
+                    <h3>$: {item.price}</h3>
                     <button>-</button>
                     <button onClick={ () => {createCartItem(item)}}>Add to cart</button>
                     <button>+</button>
@@ -89,9 +94,37 @@ function Shop () {
                     </div>
                 </div>
               )
-            })}
+            })} */}
+            
+            <Container>
+              <Row xs={1} md={3} className="g-4">
+              {items.map((item) => ( 
+                <Col>
+                    <Card  className='cardShop'>
+                      <Card.Img variant="top" src="https://cdn.shopify.com/s/files/1/0605/9229/2054/products/unisex-heavy-blend-hoodie-white-front-616dafd802de8_220x.jpg?v=1634578394" />
+                      <div key={item.id}>
+                            {" "}
+                            <Card.Body >
+                              <Card.Title><h2>{item.name}</h2></Card.Title>
+                              <Card.Text><h3>${item.price}</h3></Card.Text>
+                              
+                                <button>-</button>
+                                <button onClick={ () => {createCartItem(item)}}>Add to cart</button>
+                                <button>+</button>
+                            
+                                <div>
+                                    <button onClick={ () => {deleteItem(item.id)}}> Delete Item</button>
+                                </div>
+                            </Card.Body>
+                        </div>
+                  </Card>
+                </Col>
+              ))}
+              </Row>
+            </Container>
+            </div>
 
-            <div>
+            <div className='yourCart'>
                 <h1> Your Cart</h1>
 
                 {cart.map((cartItem) => {
