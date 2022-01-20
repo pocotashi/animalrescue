@@ -7,7 +7,7 @@ import SideComp from './Sidecomp';
 import Footer from '../Footer';
 
 
-function Dog() {
+function Cat() {
 
   const [newName, setNewName] = useState("");
   const [newAge, setNewAge] = useState();
@@ -15,12 +15,12 @@ function Dog() {
   const [newBreed, setNewBreed] = useState("");
   const [newStatus, setNewStatus] = useState("available");
 
-  const [dogs, setDogs] = useState([]);
+  const [cats, setCats] = useState([]);
 
-  const dogsCollectionRef = collection(db, "dogs");
+  const catsCollectionRef = collection(db, "cats");
 
-  const createDog = async () => {
-    await addDoc(dogsCollectionRef, 
+  const createCat = async () => {
+    await addDoc(catsCollectionRef, 
       {
         name: newName,
         age: Number(newAge) , 
@@ -29,8 +29,7 @@ function Dog() {
         status: newStatus
       });
 
-      console.log(createDog);
-      console.log("are you working");
+      
 
 
       setNewName("")
@@ -40,38 +39,38 @@ function Dog() {
       setNewStatus("")
   };
   
-  const updateDog = async (id, age) => {
+  const updateCat = async (id, age) => {
     
-    const dogDoc = doc(db, "dogs", id)
+    const catDoc = doc(db, "cats", id)
     const newFields = {age: age + 1}
-    await updateDoc(dogDoc, newFields)
+    await updateDoc(catDoc, newFields)
 
   }
 
-  const updateDogStatus = async (id, status) => {
+  const updateCatStatus = async (id, status) => {
     
-    const dogDoc = doc(db, "dogs", id)
+    const catDoc = doc(db, "cats", id)
     const newStats = {status: status = "adopted"}
-    await updateDoc(dogDoc, newStats)
+    await updateDoc(catDoc, newStats)
 
   }
 
-  const deleteDog = async (id) => {
+  const deleteCat = async (id) => {
 
-    const dogDoc = doc(db, "dogs", id)
-    await deleteDoc(dogDoc)
+    const catDoc = doc(db, "cats", id)
+    await deleteDoc(catDoc)
 
   }
 
   useEffect(() => {
 
-      const data = query(dogsCollectionRef);
+      const data = query(catsCollectionRef);
       const unsub = onSnapshot(data, (querySnapshot) => {
-        let dogsArray = [];
+        let catsArray = [];
         querySnapshot.forEach((doc) => {
-          dogsArray.push({...doc.data(), id: doc.id})
+            catsArray.push({...doc.data(), id: doc.id})
         })
-      setDogs(dogsArray);
+      setCats(catsArray);
   });
 
   return () => unsub();
@@ -86,7 +85,7 @@ function Dog() {
           <div className='adoptionPage'>
 
             <div>
-                  <img className="firstImage" alt="dogs" src="https://images.pexels.com/photos/1562983/pexels-photo-1562983.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"/>
+                  <img className="firstImage" alt="cats" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT4it_Jqeo2FMOA-0f2yJk5uYJ3YTa1j7MVSA&usqp=CAU"/>
             </div>
 
 
@@ -97,7 +96,7 @@ function Dog() {
               <input type="number" placeholder='Age..' value={newAge} onChange={(event) => { setNewAge(event.target.value); }}/>
               <input placeholder='status...'   onChange={(event) => { setNewStatus(event.target.value); }}/>
 
-              <button onClick={createDog}> Create User</button>
+              <button onClick={createCat}> Create User</button>
             </div>
 
             <Container>
@@ -110,10 +109,10 @@ function Dog() {
                 <Col xs={1} ><p class="vertical_dotted_line"></p></Col>
 
                 <Col xs={7}>
-                  <h1>Dogs for Adoption</h1>
+                  <h1>Cats for Adoption</h1>
 
                   <h6>We no longer accept walk-in visits.</h6>
-                  <h6 className="dogstext">Potential adopters should submit an <em>adoption survey</em> if interested in meeting and adopting any of our dogs! <em>Click here</em> to learn more about our adoption process.</h6>
+                  <h6 className="petstext">Potential adopters should submit an <em>adoption survey</em> if interested in meeting and adopting any of our cats! <em>Click here</em> to learn more about our adoption process.</h6>
                   
                   <div className='specialCare'>
                     <h6 className='specialCareText'>  ⭐️ = Requires special care</h6> 
@@ -127,23 +126,23 @@ function Dog() {
           <div className='profileCards'>
             <Container>
               <Row xs={1} md={3} className="g-4">
-              {dogs.map((dog) => ( 
-                <Col  key={dog.id}>
+              {cats.map((cat) => ( 
+                <Col  key={cat.id}>
                     <Card>
-                      <Card.Img variant="top" src="https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/dog-puppy-on-garden-royalty-free-image-1586966191.jpg?crop=1.00xw:0.669xh;0,0.190xh&resize=1200:*" />
+                      <Card.Img variant="top" src="https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/cute-cat-photos-1593441022.jpg?crop=0.669xw:1.00xh;0.166xw,0&resize=640:*" />
                         <div >
                             {" "}
                             <Card.Body className='cardBody'>
-                              <Card.Title><h2>Name: {dog.name}</h2></Card.Title>
-                              <Card.Text><h3>Age: {dog.age}</h3></Card.Text>
-                              <Card.Text><h3>Gender: {dog.gender}</h3></Card.Text>
-                              <Card.Text><h3>Breed: {dog.breed}</h3></Card.Text>
-                              <Card.Text><h3>Status: {dog.status}</h3></Card.Text>
+                              <Card.Title><h2>Name: {cat.name}</h2></Card.Title>
+                              <Card.Text><h3>Age: {cat.age}</h3></Card.Text>
+                              <Card.Text><h3>Gender: {cat.gender}</h3></Card.Text>
+                              <Card.Text><h3>Breed: {cat.breed}</h3></Card.Text>
+                              <Card.Text><h3>Status: {cat.status}</h3></Card.Text>
 
                               <div>
-                              <button className="petbutton" onClick={ () => {updateDog(dog.id, dog.age)}}> increase age</button>
-                              <button className="petbutton" onClick={ ()=> {deleteDog(dog.id)}}> delete user</button>
-                              <button className="petbutton" onClick={ ()=> {updateDogStatus(dog.id)}}> Adopt ME</button>
+                              <button className="petbutton" onClick={ () => {updateCat(cat.id, cat.age)}}> increase age</button>
+                              <button className="petbutton" onClick={ ()=> {deleteCat(cat.id)}}> delete user</button>
+                              <button className="petbutton" onClick={ ()=> {updateCatStatus(cat.id)}}> Adopt ME</button>
                               </div>
                             </Card.Body>
                             
@@ -163,4 +162,4 @@ function Dog() {
   );
 }
 
-export default Dog;
+export default Cat;

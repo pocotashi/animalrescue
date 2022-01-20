@@ -1,6 +1,8 @@
 import { useState , useEffect} from 'react';
 import {db} from "../firebase-config";
-import { addDoc, collection, getDocs, deleteDoc, doc } from "firebase/firestore"
+import { addDoc, collection, query, onSnapshot, deleteDoc, doc } from "firebase/firestore"
+import Footer from '../Footer';
+import NavBar from '../Navbar';
 
 function Donate () {
 
@@ -39,31 +41,102 @@ function Donate () {
 
     }
 
+    
     useEffect(() => {
 
-        const getDonate = async () =>  {
-
-            const data = await getDocs(donationCollectionRef);
-            setDonate(data.docs.map((doc) => ({...doc.data(), id: doc.id})));    
-       
-    
-        }
-        getDonate()
-    }, [donationCollectionRef])
+        const data = query(donationCollectionRef);
+        const unsub = onSnapshot(data, (querySnapshot) => {
+          let donateArray = [];
+          querySnapshot.forEach((doc) => {
+            donateArray.push({...doc.data(), id: doc.id})
+          })
+        setDonate(donateArray);
+    });
+  
+    return () => unsub();
+  }, []);  
 
     return (
         <div>
+            <div className='donationForm'>
 
-                <input placeholder='name' value={name} onChange={(event) => { setName(event.target.value); }}/>
-                <input placeholder='email' value={email} onChange={(event) => { setEmail(event.target.value); }}/>
-                <input type="number" placeholder='phone' value={phone} onChange={(event) => { setPhone(event.target.value); }}/>
-                <input type="number" placeholder='amount' value={amount} onChange={(event) => { setAmount(event.target.value); }}/>
 
-                <button onClick={donateNow}>Donate</button>
+            <NavBar/>
 
-           <h1>Thank You</h1>
+            <div className='form'>
+            <h1>Your gift will change a pet’s life!</h1>
 
-            {donation.map((donate) => {
+            <p>At Animal Haven, we work every day to find homes for dogs and cats in crisis. We're committed to providing the best possible care for their specific needs while they wait. You can create hope for them: your donation provides healthy food, comfortable bedding, vital enrichment, training and medical intervention. Donate today!</p>
+
+                <div>
+                    <label className='donationText'><input type="checkbox"/> One time Donation  </label>
+                
+                    <label className='donationText'><input type="checkbox"/> Monthly Donation </label>
+                </div>
+
+                <div className='formPad'>
+                    <h3 className='formText'>1. Gift Amount</h3>
+                    <label>
+                    <input type="number" placeholder='amount' value={amount} onChange={(event) => { setAmount(event.target.value); }}/>
+                    </label>
+                </div>
+                
+                <div className='formPad'>
+                    <h3>2. Billing Amount</h3>
+
+                        <div className='formText'>
+                            <label>Name
+                                <input size="50" type="text" placeholder='name' value={name} onChange={(event) => { setName(event.target.value); }}/>
+                            </label>
+                        </div>
+
+                        <div className='formText'>
+                            <label>Email
+                                <input size="50" type="email" placeholder='email' value={email} onChange={(event) => { setEmail(event.target.value); }}/>
+                            </label> 
+                        </div>    
+
+                        <div className='formText'>
+                            <label>Phone
+                                <input size="1000" type="number" placeholder='phone' value={phone} onChange={(event) => { setPhone(event.target.value); }}/>
+                            </label> 
+                        </div>  
+
+                </div>
+
+                <div className='formPad'>
+                    <h3>3. Payment</h3>
+
+                    <div className='formText'>
+                        <label>Credit card number
+                            <input size="100" type="number" />
+                        </label>
+                    </div>
+
+                    <div className='formText'>
+                        <label>Expiration date
+                            <input type="date" />
+                        </label>
+                    </div>
+
+
+                    <div className='formText'>
+                        <label>CVV
+                            <input type="number" />
+                        </label>
+                    </div>
+
+
+                </div>
+
+                <button className="btn btn-block" onClick={donateNow}><h2>Donate</h2></button>
+
+                <div className="thankyou"><h1 >Thank You for your donation!</h1></div>
+                
+            </div>
+           
+
+            {/* {donation.map((donate) => {
                 return (
                     <div key={donate.id}>
                         <h1>name: {donate.name}</h1>
@@ -73,11 +146,11 @@ function Donate () {
 
                     </div>
                 )
-            })}
+            })} */}
 
 
-
-
+                </div>
+            <Footer/>
         </div>
     )
 }

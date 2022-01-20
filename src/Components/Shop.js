@@ -1,6 +1,6 @@
 import { useState , useEffect} from 'react';
 import {db} from "../firebase-config";
-import { collection, getDocs, deleteDoc, doc, addDoc} from "firebase/firestore"
+import { collection, getDocs, deleteDoc, doc, addDoc, query, onSnapshot} from "firebase/firestore"
 import NavBar from '../Navbar';
 import Footer from '../Footer';
 import {Row, Col, Card, Container} from "react-bootstrap";
@@ -53,19 +53,49 @@ function Shop () {
     }
     
     useEffect(() => {
-        const getItems = async () => {
-            const data = await getDocs(itemsCollectionRef);
-            setItems(data.docs.map((doc) => ({...doc.data(), id: doc.id})));
-          }
-    
-        const getCart = async () => {
-            const data = await getDocs(cartCollectionRef);
-            setCart(data.docs.map((doc) => ({...doc.data(), id: doc.id})));
-        }
-        getItems()
-        getCart()
 
-    })
+        const data = query(cartCollectionRef);
+        
+        const unsub = onSnapshot(data, (querySnapshot) => {
+            let cartArray = [];
+            querySnapshot.forEach((doc) => {
+                cartArray.push({...doc.data(), id: doc.id})
+            })
+            setCart(cartArray);
+
+    });
+
+    return () => unsub();
+    },[])
+
+
+    useEffect(() => {
+
+        const data = query(itemsCollectionRef);
+        const unsub = onSnapshot(data, (querySnapshot) => {
+        let itemsArray = [];
+        querySnapshot.forEach((doc) => {
+            itemsArray.push({...doc.data(), id: doc.id})
+        })
+
+        
+      setItems(itemsArray);
+  });
+
+  return () => unsub();
+        // const getItems = async () => {
+        //     const data = await getDocs(itemsCollectionRef);
+        //     setItems(data.docs.map((doc) => ({...doc.data(), id: doc.id})));
+        //   }
+    
+        // const getCart = async () => {
+        //     const data = await getDocs(cartCollectionRef);
+        //     setCart(data.docs.map((doc) => ({...doc.data(), id: doc.id})));
+        // }
+        // getItems()
+        // getCart()
+
+    }, [])
 
     return (
         <div className='shop'>
@@ -99,10 +129,10 @@ function Shop () {
             <Container>
               <Row xs={1} md={3} className="g-4">
               {items.map((item) => ( 
-                <Col>
+                <Col key={item.id}>
                     <Card  className='cardShop'>
                       <Card.Img variant="top" src="https://cdn.shopify.com/s/files/1/0605/9229/2054/products/unisex-heavy-blend-hoodie-white-front-616dafd802de8_220x.jpg?v=1634578394" />
-                      <div key={item.id}>
+                      <div >
                             {" "}
                             <Card.Body >
                               <Card.Title><h2>{item.name}</h2></Card.Title>
