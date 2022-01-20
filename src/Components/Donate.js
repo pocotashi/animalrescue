@@ -1,6 +1,6 @@
 import { useState , useEffect} from 'react';
 import {db} from "../firebase-config";
-import { addDoc, collection, query, onSnapshot, deleteDoc, doc } from "firebase/firestore"
+import { addDoc, collection, query, onSnapshot, deleteDoc, doc, Timestamp } from "firebase/firestore"
 import Footer from '../Footer';
 import NavBar from '../Navbar';
 
@@ -11,6 +11,11 @@ function Donate () {
     const [email, setEmail] = useState("");
     const [phone, setPhone] = useState("");
     const [amount, setAmount] = useState("");
+    const [creditCard, setCreditCard] = useState("");
+    const [expire, setExpire] = useState("");
+    const [cvv, setCvv] = useState("");
+    const isEnabled = name.length > 0 && email.length > 0 && phone.length > 0 && amount.length > 0;
+
 
 
     const [donation, setDonate] = useState([]);
@@ -24,7 +29,10 @@ function Donate () {
                 name: name,
                 email: email,
                 phone: Number(phone),
-                amount: Number(amount)
+                amount: Number(amount),
+                creditCardNumber: Number(creditCard),
+                expirationDate: (expire),
+                cvv: Number(cvv),
             });
         
             
@@ -32,6 +40,9 @@ function Donate () {
           setEmail("");
           setPhone("");
           setAmount("");
+          setCreditCard("");
+          setExpire("");
+          setCvv("");
     };
 
     const deleteDonate = async (id) => {
@@ -69,9 +80,9 @@ function Donate () {
             <p>At Animal Haven, we work every day to find homes for dogs and cats in crisis. We're committed to providing the best possible care for their specific needs while they wait. You can create hope for them: your donation provides healthy food, comfortable bedding, vital enrichment, training and medical intervention. Donate today!</p>
 
                 <div>
-                    <label className='donationText'><input type="checkbox"/> One time Donation  </label>
+                    <label className='donationText'><input type="checkbox" /> One time Donation  </label>
                 
-                    <label className='donationText'><input type="checkbox"/> Monthly Donation </label>
+                    <label className='donationText'><input type="checkbox" /> Monthly Donation </label>
                 </div>
 
                 <div className='formPad'>
@@ -109,27 +120,27 @@ function Donate () {
 
                     <div className='formText'>
                         <label>Credit card number
-                            <input size="100" type="number" />
+                            <input size="100" type="number" value={creditCard} onChange={(event) => { setCreditCard(event.target.value); }}/>
                         </label>
                     </div>
 
                     <div className='formText'>
                         <label>Expiration date
-                            <input type="date" />
+                            <input type="date" value={expire} onChange={(event) => { setExpire(event.target.value); }}/>
                         </label>
                     </div>
 
 
                     <div className='formText'>
                         <label>CVV
-                            <input type="number" />
+                            <input type="number" value={cvv} onChange={(event) => { setCvv(event.target.value); }}/>
                         </label>
                     </div>
 
 
                 </div>
 
-                <button className="btn btn-block" onClick={donateNow}><h2>Donate</h2></button>
+                <button className="btn btn-block" onClick={donateNow} disabled={!isEnabled}><h2>Donate</h2></button>
 
                 <div className="thankyou"><h1 >Thank You for your donation!</h1></div>
                 

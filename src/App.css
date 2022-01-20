@@ -156,7 +156,6 @@ a {
 
 .adoptionPage {
   background-color: #BAFFB4;
-
 }
 
 .adoptionNav {
@@ -223,6 +222,7 @@ a {
 
 .quote img {
   width: 100%;
+  height: 50%;
   opacity: .80;
   
 }
