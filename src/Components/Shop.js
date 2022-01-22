@@ -1,6 +1,6 @@
 import { useState , useEffect} from 'react';
 import {db} from "../firebase-config";
-import { collection, getDocs, deleteDoc, doc, addDoc, query, onSnapshot} from "firebase/firestore"
+import { collection, deleteDoc, doc, addDoc, query, onSnapshot} from "firebase/firestore"
 import NavBar from '../Navbar';
 import Footer from '../Footer';
 import {Row, Col, Card, Container} from "react-bootstrap";
@@ -169,6 +169,8 @@ function Shop () {
                     </div>   
                 )})}
             </div>
+
+
             <Footer/>    
         </div>
     )

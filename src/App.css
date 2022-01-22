@@ -7,12 +7,19 @@ a {
 
 .navbar {
   background-color: #ffab76;
+  padding: 1.3% 1% !important;
+  font-size: 25px;
 }
 
-/* Nav  {
-  color: black !important;
-  font-weight: bold;
-} */
+.logo {
+  width: 150px;
+  height: 120px;
+}
+
+.logoText {
+  text-align: center;
+
+}
 
 .footer {
   background-color: #ffab76;
@@ -27,9 +34,15 @@ a {
 
 .sidecomp {
     background-color: #BAFFB4;
-    color:  black !important;
+    color:  #000 !important;
     text-decoration: none !important;
 
+}
+
+.sidecomp h3:hover {
+  background-color: #BAABDA;
+  transform: translate(-15px, -15px);
+	border-color: #ffb7b7;
 }
 
 .vertical_dotted_line
@@ -37,13 +50,6 @@ a {
     border-left: 3px dashed black;
     height: 300px;
 } 
-
-.logo {
-  width: 160px;
-  height: 80px;
-  background: #fffda2;
-  border-radius: 50%;
-}
 
 .homelogo {
   padding-top: 20px
@@ -60,6 +66,14 @@ a {
   margin-left: 11%;
 }
 
+.faq {
+  padding: 6% 10%;
+  line-height: 3rem;
+}
+
+.faq h1 , h6 {
+  font-weight: bolder;
+}
 /* ---------- */
 
 
@@ -167,7 +181,7 @@ a {
 .petHeadshotLink {
   justify-items: left;
   text-align: center;
-  padding: 2% 0;
+  padding: 2% .85%;
 }
 
 .petHeadshot {
@@ -261,7 +275,7 @@ input {
 }
 
 input[type="number"] {
-  width: 240%;
+  width: 240px;
 }
 
 textarea {

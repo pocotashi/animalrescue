@@ -40,7 +40,7 @@ function About() {
                             <h3>Hours</h3>
                             <p><srtong>By Appointment Only.</srtong></p>
 
-                            <a href="/about/faq"><h1>FAQs</h1></a>
+                            <p>Check out our<a href="/about/faq"><h3><em>FAQs page</em></h3></a>  for answers to frequently asked questions. </p>
 
                         </Col>
 
