@@ -31,7 +31,7 @@ function Support() {
 
                             <h3><strong>Adopt a pet</strong></h3>
                             <p>We believe in a communit based rescue approach. Working together we can make the world a better palce for animals. 
-                            <a href="/adopt"><em><strong> Check out</strong></em></a> our pets!</p>
+                            <a href="/adopt/#adopt"><em><strong> Check out</strong></em></a> our pets!</p>
 
                             <h3><strong>Become a Volunteer</strong></h3>
                             <p>Join our team! It's easy to make a difference in the lives of animals. We have many oppourtunies available!

@@ -28,7 +28,7 @@ function About() {
 
                 <Container className="aboutNav">
                     <Row>
-                        <Col className="xs-5 ">
+                        <Col className="xs-5 " id="contact">
                             <h3>Location</h3>
                             <p>200 Centre Street
                             <br/>
@@ -36,6 +36,9 @@ function About() {
 
                             <h3>Phone</h3>
                             <p>212.274.8511</p>
+
+                            <h3>Email</h3>
+                            <p>info@kipurescue.org</p>
                             
                             <h3>Hours</h3>
                             <p><srtong>By Appointment Only.</srtong></p>

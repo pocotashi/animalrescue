@@ -30,7 +30,7 @@ function AdoptionProcess () {
 
 
                             <ul>
-                                <li>Take a look at our <a href="/adopt"><strong>adoptable animals!</strong></a> We ask that adopters have a specific animal or a few in mind before reaching out to make an appointment.</li>
+                                <li>Take a look at our <a href="/adopt/#adopt"><strong>adoptable animals!</strong></a> We ask that adopters have a specific animal or a few in mind before reaching out to make an appointment.</li>
                                 <li><a href="/adopt/adoptionInterestForm"><strong>Contact</strong></a> us by filling out an adoption inquiry to get in touch with a staff member. We’ll be able to provide more information on the animal(s) you’re interested in and can set up an appointment for you to meet them!Please allow a few days for a reply. We try to get back to everyone within 1-2 days, but sometimes we experience a large volume of inquiries and may be delayed. We are a very small team working to get back to everyone! We thank you so much for your patience and understanding while you wait.</li>
                                 <li>Appointments to meet our animals are available from Tuesday-Friday, 2-6pm with limited availability on the weekends.</li>
                                 <li>After meeting our animals at our facility, you can fill out an application if you’d like to apply to adopt them! Please note, the adoption inquiry above is not our application! For dogs, it may take a few days to process. Cats can often be processed same day.

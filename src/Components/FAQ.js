@@ -28,7 +28,7 @@ function Faq() {
                     <h6>4) What are your hours?</h6>
                     <p>Kipu's Rescue visiting hours are by <b>appointment only</b>. We ask that potential adopters have an idea of what 
                     they are looking to adopt prior to making an appointment in order to streamline visits. Please check out our 
-                    <a href="/adopt" ><strong><em> adoptable animals</em></strong></a> and then <a href="/adopt/adoptionInterestForm"> <strong><em> submit an adoption inquiry</em></strong></a> to make an appointment to visit our animals. Appointments are available 
+                    <a href="/adopt/#adopt" ><strong><em> adoptable animals</em></strong></a> and then <a href="/adopt/adoptionInterestForm"> <strong><em> submit an adoption inquiry</em></strong></a> to make an appointment to visit our animals. Appointments are available 
                     between Tuesday-Fridays.</p>
 
                     <h6>5) What is your adoption process?</h6>
@@ -76,7 +76,7 @@ function Faq() {
                     <h6>10) Do you take donations of pet supplies?</h6>
                     <p>Yes, we can accept certain pet supplies. We’re able to accept wet dog/cat food, wee-wee pads, linens (towels, sheets, blankets are great – please no pillows,
                      dog beds, or comforters), new dog/cat toys, and unopened dog/cat treats. We’re currently unable to accept opened dry food, leashes, harnesses,
-                    collars, cat litter/litter boxes, medication, animal clothing, used toys, food bowls. Please contact us to set-up an appointment to drop of donations; we are not accepting walk-in donations at this time.</p>
+                    collars, cat litter/litter boxes, medication, animal clothing, used toys, food bowls. Please <a href="/about/#contact"><strong> contact Us</strong></a> to set-up an appointment to drop of donations; we are not accepting walk-in donations at this time.</p>
 
                     <h6>11) Is Kipu's Rescue a “no-kill” shelter?</h6>
                     <p>Kipu's Rescue will never euthanize for space or time. Adoptable animals will stay in our care for as long as it takes to get them adopted or placed in a more suitable rescue or foster situation.</p>
@@ -88,7 +88,7 @@ function Faq() {
                     <p>Yes, please call us at 212-274-8511. We will arrange a time for you to bring the dog into Kipu's Rescue during business hours and we can scan for a microchip. </p>
 
 
-                    <p>If you have a question that is not addressed here, please Contact Us for more information.</p>
+                    <p>If you have a question that is not addressed here, please <a href="/about/#contact"><strong> Contact Us</strong></a> for more information.</p>
                 </div>
 
             <Footer/>

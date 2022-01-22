@@ -5,6 +5,8 @@ import { Container, Row, Col} from "react-bootstrap";
 import NavBar from '../Navbar';
 import SideComp from './Sidecomp';
 import Footer from '../Footer';
+import {Button} from 'react-bootstrap';
+
 
 
 function AdoptionInterestForm () {

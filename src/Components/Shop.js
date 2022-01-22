@@ -107,6 +107,10 @@ function Shop () {
             <button onClick={createItem}> Create New Item</button>
 
             <div className='displayItems'>
+
+
+           
+
             <h1>Shop</h1>
 
             {/* {items.map((item) => {
@@ -169,8 +173,12 @@ function Shop () {
                     </div>   
                 )})}
             </div>
-
-
+            <div className='displayItems'>
+            <h1>Thank you for visiting our online shop!</h1>
+            <p>Proceeds from all sales in this shop directly support the <a href="/adopt/dog"><strong><em> dogs</em></strong></a> and <a href="/adopt/cat"><strong><em> cats</em></strong></a> at our rescue, 
+            as well as our rescue efforts within the community.</p>
+            <p>If you have any questions about ordering from this store, please <a href="/about/#contact"><strong> contact us</strong></a> directly</p>
+            </div>
             <Footer/>    
         </div>
     )

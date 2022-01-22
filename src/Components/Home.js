@@ -18,7 +18,7 @@ function Home() {
                     <div className="homeDonateText">
                         <h1>Save an Animal</h1>
 
-                        <Nav.Link href="/donate"><button className="homeButton">Donate Today</button></Nav.Link>
+                        <Nav.Link href="/donate"><button className="donateButton">Donate Today</button></Nav.Link>
                     </div>
 
                     {/* <div className="homePetText">
@@ -40,32 +40,24 @@ function Home() {
                         <br/>
 
                         <p>We find homes for abandoned cats and dogs in New York City and throughout the Tri-State area, and provide behavior intervention when needed to improve chances of adoption.</p>
-                        <p>Please view our adoptable pets here if you’re interested in adoption!</p>
+                        <p>Please view our <strong>adoptable pets</strong> <a href="/adopt/#adopt"><strong><em> here</em></strong></a> if you’re interested in adoption!</p>
 
 
-                            <Container  className="newsletter">
-                                <Row>
+                            <div className="newsletter">
                                     
-                                    <Col xs={3}>
+                                    
                                         <input placeholder="Email Address" />
-                                    </Col>
-
-                                    <Col xs={3}>
-                                        <input placeholder="First Name" />
-                                    </Col>
-
-                                    <Col xs={3}>
+                                   
                                         <input placeholder="Last Name" />
-                                    </Col>
                                     
-                                    <Col xs={3}>
-                                        <div>
-                                            <button className="homeButton">Yes!</button>
-                                        </div>
-                                    </Col>
+                                        <input placeholder="First Name" />
+                                    
+                                       
+                                        <button className="homeButton">Yes!</button>
+                                        
+                                    
 
-                                </Row>
-                            </Container>
+                            </div>
                     </div>
 
                     {/* <div >

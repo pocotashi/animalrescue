@@ -16,19 +16,19 @@ function Adoption () {
                 <img className="firstImage" alt="adoptPage" src="https://www.akc.org/wp-content/uploads/2015/06/Golden-Retriever-laying-down-playing-with-a-cat.jpeg"/>
             </div>
 
-            <Container className="adoptionNav">
+            <Container className="adoptionNav" id="adopt">
                 <Row>
 
-                    <Col xs={4}>
+                    <Col xs={3}>
                         <SideComp/>
 
                         {/* <p class="vertical_dotted_line"></p>                         */}
                     </Col>
 
-                    <Col xs={1} ><p class="vertical_dotted_line"></p></Col>
+                    <Col xs={1} ><p className="vertical_dotted_line"></p></Col>
                     
 
-                    <Col xs={7}>
+                    <Col xs={8}>
                         <Container className="petHeadshotLink">
                             <Row>
                                 <Col className="xs-6 ">
@@ -55,7 +55,7 @@ function Adoption () {
                             <img alt="petProfile" src="https://d17fnq9dkz9hgj.cloudfront.net/uploads/2018/04/Devon-Rex-Striped.jpg" />
 			 				<div className="quoteText">
                                 <p>” Ike is our little buddy. He is wherever the kids are. We love this boy and the extra fun he brings to our family. Adopting Ike was a great decision and we are so happy he is in our life.”</p>
-								<span class="bb-testimonial__author">Ike and Family</span>	
+								<span className="bb-testimonial__author">Ike and Family</span>	
 							</div>				
 				</div>
                 

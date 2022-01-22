@@ -53,6 +53,12 @@ function Volunteer() {
 
                     <p>We’ve temporarily stopped accepting new volunteer applications,
 but please check back here in early 2022 if you’re interested in volunteering!</p>
+
+
+                <p>If you are interested in fostering, please checkout our <a href="/adopt/#adopt"><strong> adoptable animals</strong></a> and fill up the foster form.
+                If you need help with the process please <a href="/about/#contact"><strong> contact us</strong></a> and we will help you get started and complete the process.</p>
+
+
                 </div>
 
                             

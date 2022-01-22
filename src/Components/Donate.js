@@ -1,8 +1,10 @@
 import { useState , useEffect} from 'react';
 import {db} from "../firebase-config";
-import { addDoc, collection, query, onSnapshot, deleteDoc, doc, Timestamp } from "firebase/firestore"
+import { addDoc, collection, query, onSnapshot, deleteDoc, doc } from "firebase/firestore"
 import Footer from '../Footer';
 import NavBar from '../Navbar';
+import {Button} from 'react-bootstrap';
+
 
 function Donate () {
 
@@ -140,8 +142,8 @@ function Donate () {
 
                 </div>
 
-                <button className="btn btn-block" onClick={donateNow} disabled={!isEnabled}><h2>Donate</h2></button>
-
+                <Button className="donateButton" onClick={donateNow} disabled={!isEnabled}><h2>Donate</h2></Button>
+                
                 <div className="thankyou"><h1 >Thank You for your donation!</h1></div>
                 
             </div>
