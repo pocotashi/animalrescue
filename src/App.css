@@ -114,15 +114,36 @@ a {
   
 }
 
-.homeDonateText {
+.homePetText {
   color: white;
   text-align: center;
   position: absolute;
   bottom: 3%;
-  left: 40%;
-  transform: translate(-3%, -45%);
-  font-size: 30px;
-  display: inline;
+  left: 50%;
+}
+
+.homePetTextB {
+  color: white;
+  text-align: center;
+  position: absolute;
+  bottom: 3%;
+  left: 5%;
+}
+
+.homeBacklink {
+  background-color: #fffda2;
+  border: none;
+  border-radius: 10px;
+  width: auto;
+  padding: 14px 28px;
+  font-size: large;
+  font-weight: bold;
+  color: #0b6b2b;
+}
+
+.homeBacklink:hover {
+  background-color: blueviolet;
+  color: white;
 }
 
 .homeNews {
@@ -148,10 +169,11 @@ a {
   font-weight: bold;
   margin: 1%;
   padding: 0 2%;
-
-  
 }
 
+.homeButton:hover {
+  background-color: blueviolet;
+}
 
 /* -------------- */
 
