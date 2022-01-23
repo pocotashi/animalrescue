@@ -1,1 +1,1 @@
-let anArr = ["tashi", "alvin"];
+let anArr = [1,2,3];
