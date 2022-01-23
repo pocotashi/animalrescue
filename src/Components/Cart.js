@@ -6,7 +6,7 @@ import Footer from '../Footer';
 import {Row, Col, Card, Container} from "react-bootstrap";
 
 
-function Shop () {
+function Cart () {
 
     const [newItem, setNewItem] = useState("");
     const [newPrice, setNewPrice] = useState("")
@@ -111,62 +111,27 @@ function Shop () {
 
            
 
-            <h1>Shop</h1>
+            <h1>Cart</h1>
             <h2>  {cart.length} items are in the 🛒cart</h2>
 
-            {/* {items.map((item) => {
-              return (
-                <div key={item.id}>
-                    {" "}
-                    <h3>Name: {item.name}</h3>
-                    <h3>$: {item.price}</h3>
-                    <button>-</button>
-                    <button onClick={ () => {createCartItem(item)}}>Add to cart</button>
-                    <button>+</button>
-                
-                    <div>
-                        <button onClick={ () => {deleteItem(item.id)}}> Delete Item</button>
-                    </div>
-                </div>
-              )
-            })} */}
-            
-            <Container>
-              <Row xs={1} md={3} className="g-4">
-              {items.map((item) => ( 
-                <Col key={item.id}>
-                    <Card  className='cardShop'>
-                      <Card.Img variant="top" src="https://cdn.shopify.com/s/files/1/0605/9229/2054/products/unisex-heavy-blend-hoodie-white-front-616dafd802de8_220x.jpg?v=1634578394" />
-                      <div >
-                            {" "}
-                            <Card.Body >
-                              <Card.Title><h2>{item.name}</h2></Card.Title>
-                              <Card.Text><h3>${item.price}</h3></Card.Text>
-                              
-                                <button>-</button>
-                                <button onClick={ () => {createCartItem(item)}}>Add to cart</button>
-                                <button>+</button>
-                            
-                                <div>
-                                    <button onClick={ () => {deleteItem(item.id)}}> Delete Item</button>
-                                </div>
-                            </Card.Body>
+
+                {
+                     cart.map((cartItem) => {
+                return (
+                    <div key={cartItem.id}>
+                        <h3>Name: {cartItem.name}</h3>
+                        <h3>Price: {cartItem.price}</h3>
+
+                        <div>
+                            <button onClick={ () => {deleteCartItem(cartItem.id)}}> Delete Item</button>
                         </div>
-                  </Card>
-                </Col>
-              ))}
-              </Row>
-            </Container>
+                    </div>   
+                )}) 
+                }            
             </div>
-            <div className='displayItems'>
-            <h1>Thank you for visiting our online shop!</h1>
-            <p>Proceeds from all sales in this shop directly support the <a href="/adopt/dog"><strong><em> dogs</em></strong></a> and <a href="/adopt/cat"><strong><em> cats</em></strong></a> at our rescue, 
-            as well as our rescue efforts within the community.</p>
-            <p>If you have any questions about ordering from this store, please <a href="/about/#contact"><strong> contact us</strong></a> directly</p>
-            </div>
-            <Footer/>    
+    
         </div>
     )
 }
 
-export default Shop;
+export default Cart;

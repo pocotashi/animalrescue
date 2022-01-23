@@ -21,6 +21,7 @@ import Volunteer from "./Components/Volunteer";
 import Support from "./Components/Support";
 
 import Shop from "./Components/Shop";
+import Cart from "./Components/Cart";
 import Donate from "./Components/Donate";
 
 
@@ -80,6 +81,11 @@ function App() {
                 <Route path="/shop"
                     element={<Shop/>}
                 />
+
+                <Route path="/cart"
+                    element={<Cart/>}
+                />
+
 
                 
 
