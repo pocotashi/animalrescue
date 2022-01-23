@@ -259,9 +259,9 @@ iframe {
   color: white;
 }
 
-.petstext {
+/* .petstext {
   padding-bottom: 5%;
-}
+} */
 
 .profileCards {
   margin: auto;
@@ -292,6 +292,17 @@ iframe {
   padding: 10px;
 
 }
+
+.adoptProcess {
+  padding: 5% 4%;
+}
+
+@media screen and (max-width: 600px ) {
+  .processHead {
+    padding-top: 5%;
+  }
+}
+
 
 .petbutton {
   background-color: #fffda2;

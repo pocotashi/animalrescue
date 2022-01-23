@@ -99,23 +99,25 @@ function Cat() {
               <button onClick={createCat}> Create User</button>
             </div>
 
-            <Container>
+            <Container className='dogspage'>
 
               <Row>
-                <Col xs={4}>
+                <Col sm={4}>
                   <SideComp/>
                 </Col>
 
-                <Col xs={1} ><p class="vertical_dotted_line"></p></Col>
 
-                <Col xs={7}>
+                <Col sm={8} className="dogstext">
                   <h1>Cats for Adoption</h1>
 
-                  <h6>We no longer accept walk-in visits.</h6>
-                  <h6 className="petstext">Potential adopters should submit an <em>adoption survey</em> if interested in meeting and adopting any of our cats! <em>Click here</em> to learn more about our adoption process.</h6>
+                  <p>We no longer accept walk-in visits.
+                  <br/>
+                  Potential adopters should submit an <a href="/adopt/adoptionInterestForm"><b><em> adoption survey</em></b></a> if interested in meeting and adopting any of our cats! 
+                  <br/>
+                  <a href="/adopt/adoptionProcess"><b><em> Click here</em></b></a> to learn more about our adoption process.</p>
                   
                   <div className='specialCare'>
-                    <h6 className='specialCareText'>  ⭐️ = Requires special care</h6> 
+                    <h6 className='specialCareText'>  ❤️ = Requires special care</h6> 
                   </div>
                 </Col>
               </Row>

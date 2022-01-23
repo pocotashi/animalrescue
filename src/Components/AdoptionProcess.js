@@ -11,14 +11,12 @@ function AdoptionProcess () {
             <div className="adoptionPage">
 
                 <Container className="adoptionNav">
-                    <Row>
-                        <Col xs={4}>
+                    <Row className="adoptProcess">
+                        <Col sm={4}>
                             <SideComp/>
                         </Col>
 
-                        <Col xs={1} ><p class="vertical_dotted_line"></p></Col>
-
-                        <Col xs={7}>
+                        <Col sm={8} className="processHead">
                             <h1>Adoption Process</h1>
 
                             <h3>July 2021 update!</h3>
