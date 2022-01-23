@@ -64,10 +64,6 @@ a {
   font-size: 2.5rem !important;
 }
 
-/* .sidepic {
-  width: 300px;
-  height: 300px; 
-} */
 
 .faq {
   padding: 6% 10%;
@@ -354,42 +350,61 @@ iframe {
 /* forms */
 
 .form {
-  padding: 5% 5%;
+  padding: 0;
+  padding-left: 5%;
 }
 
 input, label , textarea {
   display: block;
 }
 
+input[type="checkbox"]{
+  display: inline-block;
+  
+}
+
+
+label {
+  width: 200px;
+}
+
 input::-webkit-inner-spin-button {
   -webkit-appearance: none;
-  margin: 0;
+  margin: 10px 0;
 }
 
 input {
   height: 30px;
-  margin: 0;
-  padding: 0;
-}
+  margin: 10px 0;
+  padding: 10px;
+  border: none;
+  border-radius: 10px;
+  box-shadow:0 0 15px 4px rgba(0,0,0,0.06);
 
-input[type="number"] {
-  width: 240px;
 }
 
 textarea {
-  width: 170%; 
+  width: 100%; 
   height: 150px; 
+  border: none;
+  margin: 10px 0;
+  padding: 10px;
+  border: none;
+  border-radius: 10px;
+  box-shadow:0 0 15px 4px rgba(0,0,0,0.06);
 }
 
 .formPad {
-  padding-top: 1.5%;
-  padding-bottom: 1.5%;
+  padding: 2% 0%;
+
 }
 
-.formText {
-  padding-bottom: .75%;
-  padding-top: .75%;
+.formPad input {
+  display: inline; 
+  margin: 1%;
+  padding: 2% 3%;
 }
+
 /* -------------- */
 
 /* Donation form */
@@ -398,6 +413,7 @@ textarea {
   background-color: #BAFFB4;
   margin: auto;
   line-height: 3rem;
+  padding: 6% 5%;
 }
 
 .donationText {
@@ -411,7 +427,7 @@ textarea {
   width: 200px;
   height: 80px;
   text-align: center;
-  border-radius: 10%;
+  border-radius: 10px;
   font-size: 2rem !important;
   
 }
