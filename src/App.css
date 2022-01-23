@@ -29,7 +29,8 @@ a {
 
 .firstImage {
   width: 100%;
-  background-size: 100%;
+  height: auto;
+
 }
 
 .sidecomp {
@@ -174,6 +175,8 @@ a {
 
 .homeButton:hover {
   background-color: blueviolet;
+  color: white;
+
 }
 
 /* -------------- */
@@ -227,28 +230,33 @@ iframe {
   line-height: 2rem;
 }
 
+
 .petHeadshotLink {
   justify-items: left;
   text-align: center;
-  padding: 2% 0;
-  padding-right: 3% !important;
+  margin: 0 !important;
 }
 
 .petHeadshot {
   height: 200px;
   width: 200px;
   border-radius: 50%;
+  margin: 3% 0 !important;
 }
 
 .petButton {
   background-color: #ffab76;
   font-weight: bold;
-  color: black !important;
+  color: black ;
   border: none !important;
   width: 80px;
   height: 40px;
   border-radius: 10%;
+}
 
+.petButton:hover {
+  background-color: blueviolet;
+  color: white;
 }
 
 .petstext {
@@ -281,23 +289,40 @@ iframe {
 
 .quote {
   position: relative;
-  
+
 }
 
 .quote img {
-  width: 100%;
-  height: 30%;
   opacity: .80;
-  
+  width: 100%;
+  height: 500px;
+  object-fit:cover;
+  object-position:50% 50%;  
+}
+
+@media screen and (max-width: 600px ) {
+  .quote img {
+    max-width: 600px;
+  }
 }
 
 .quoteText {
   position: absolute;
   line-height: 1.5rem;
   top: 50%;
-  left: 45%;
-  transform: translate(-50%, -45%);
+  left: 0;
+  width: 100%;
+  text-align: center;
+  color: white;
+  font-weight: bold;
+  padding: 0 20%;
+}
 
+@media screen and (max-width: 600px ) {
+  .quoteText {
+    padding: 0 15%;
+    
+  }
 }
 
 
