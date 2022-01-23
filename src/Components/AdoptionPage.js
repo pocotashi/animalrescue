@@ -28,7 +28,7 @@ function Adoption () {
                     <Col sm={8}>
                         <Container className="petHeadshotLink">
                             <Row>
-                                <Col className="sm-6 ">
+                                <Col className="sm-6">
                                     
                                     <Nav.Link href="/adopt/dog"><img className="petHeadshot" alt="petProfile"  src="https://picturecorrect-wpengine.netdna-ssl.com/wp-content/uploads/2013/04/dog-photography-tips.jpg" /> </Nav.Link>
 
@@ -36,7 +36,7 @@ function Adoption () {
                                     
                                 </Col>
 
-                                <Col className="sm-6 ">
+                                <Col className="sm-6">
                                     <Nav.Link href="/adopt/cat"><img className="petHeadshot" alt="petProfile" src="https://res.cloudinary.com/fleetnation/image/private/c_fit,w_1120/fl_no_overflow,g_south,l_text:style_gothic2:%C2%A9%20Martin%20Tosh,o_20,y_10/fl_no_overflow,g_center,l_watermark4,o_25,y_50/v1585993327/l9xq21q97p1rtjngwhwu.jpg" /> </Nav.Link>
 
                                     <Nav.Link href="/adopt/cat"><button className="petButton">Cats</button> </Nav.Link>

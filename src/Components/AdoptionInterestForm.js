@@ -98,7 +98,7 @@ function AdoptionInterestForm () {
                         <h3>THIS FORM IS NOT AN ADOPTION APPLICATION *</h3>
 
                         
-                        <div >I acknowledge that this form is NOT adoption application for Kipu's Rescue <input type="checkbox"/> </div> 
+                        <div>I acknowledge that this form is NOT adoption application for Kipu's Rescue <input type="checkbox"/> </div> 
                         
 
                         <div className='formPad'>
