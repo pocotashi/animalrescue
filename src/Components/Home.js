@@ -14,22 +14,21 @@ function Home() {
                 <div className="homeImage">
                     <img className="firstImage" alt="adoptPage" src="https://149366112.v2.pressablecdn.com/wp-content/uploads/2020/10/shutterstock_1186076164-1536x1024.jpg"/>
 
+                    <Container>
+                        <Row>
+                            <Col xs={6} className="homePetText">
+                                <h1>Save an Animal</h1>
+                                <Nav.Link href="/donate"><button className="homeBacklink">Donate Today</button></Nav.Link>
+                            </Col>
 
-                    <div className="homeDonateText">
-                        <h1>Save an Animal</h1>
-
-                        <Nav.Link href="/donate"><button className="donateButton">Donate Today</button></Nav.Link>
-                    </div>
-
-                    {/* <div className="homePetText">
-                        <h1>View Our Pets</h1>
-
-                        <Nav.Link href="/adopt"><button className="homeButton">Visit Us</button></Nav.Link>
-                    </div> */}
+                            <Col xs={6} className="homePetTextB">
+                                <h1>View Our Pets</h1>
+                                <Nav.Link href="/adopt"><button className="homeBacklink">Visit Us</button></Nav.Link>
+                            </Col>
+                        </Row>
+                    </Container>
                     
-                
-                
-                
+
                 </div>
 
                     <div className="homeNews">
@@ -45,15 +44,15 @@ function Home() {
 
                             <div className="newsletter">
                                     
-                                    
+                                    <h3>Help us save animals. Join Us:</h3>
                                         <input placeholder="Email Address" />
                                    
                                         <input placeholder="Last Name" />
                                     
                                         <input placeholder="First Name" />
                                     
-                                       
-                                        <button className="homeButton">Yes!</button>
+                                       <div><button className="homeButton">Yes!</button></div>
+                                        
                                         
                                     
 

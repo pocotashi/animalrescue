@@ -9,7 +9,7 @@ function Volunteer() {
             <NavBar/>
 
             <div>
-                <img className="firstImage" alt="volunteerPage" src="http://www.joliettownshipanimalcontrol.net/wp-content/uploads/2013/10/iStock_000022205849Small-1024x360.jpg"/>
+                <img className="firstImage" alt="volunteerPage" src="https://images.fineartamerica.com/images/artworkimages/mediumlarge/3/cats-and-dogs-together-white-web-banner-good-focused.jpg"/>
             </div>
 
             <div className="support">
@@ -30,7 +30,7 @@ function Volunteer() {
 
                 <Container>
                     <Row>
-                        <Col className="xs-6 ">
+                        <Col className="sm-6 ">
                         <h6>The volunteer experience at the shelter includes (but is not limited to):</h6>
                         <ul>
                             <li>cleaning animal areas and facility</li>
@@ -41,7 +41,7 @@ function Volunteer() {
                             <li>greeting guests for special events</li>
                         </ul>
                         </Col> 
-                        <Col className="xs-6 sidepic">
+                        <Col className="sm-6">
                             <img src="https://animalhaven.org/wp-content/uploads/2019/09/Volunteer-03666-2-376x450.jpg" alt="volunteer"/>
                         </Col>
                     </Row>

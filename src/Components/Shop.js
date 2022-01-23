@@ -3,7 +3,7 @@ import {db} from "../firebase-config";
 import { collection, deleteDoc, doc, addDoc, query, onSnapshot} from "firebase/firestore"
 import NavBar from '../Navbar';
 import Footer from '../Footer';
-import {Row, Col, Card, Container} from "react-bootstrap";
+import {Row, Col, Card, Container, Nav} from "react-bootstrap";
 
 
 function Shop () {
@@ -108,11 +108,9 @@ function Shop () {
 
             <div className='displayItems'>
 
-
-           
-
             <h1>Shop</h1>
-            <h2>  {cart.length} items are in the 🛒cart</h2>
+            <h3> {cart.length} items are in your 🛒</h3>
+            <Nav.Link href="/cart"><button className='homeBacklink'> Checkout </button></Nav.Link>
 
             {/* {items.map((item) => {
               return (
@@ -143,13 +141,11 @@ function Shop () {
                               <Card.Title><h2>{item.name}</h2></Card.Title>
                               <Card.Text><h3>${item.price}</h3></Card.Text>
                               
-                                <button>-</button>
-                                <button onClick={ () => {createCartItem(item)}}>Add to cart</button>
-                                <button>+</button>
+                                <button className="homeBacklink" onClick={ () => {createCartItem(item)}}>Add to cart</button>
                             
-                                <div>
+                                {/* <div>
                                     <button onClick={ () => {deleteItem(item.id)}}> Delete Item</button>
-                                </div>
+                                </div> */}
                             </Card.Body>
                         </div>
                   </Card>
@@ -157,6 +153,8 @@ function Shop () {
               ))}
               </Row>
             </Container>
+
+            <Nav.Link href="/cart"><button className='homeBacklink'> Checkout </button></Nav.Link>
             </div>
             <div className='displayItems'>
             <h1>Thank you for visiting our online shop!</h1>
