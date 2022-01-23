@@ -63,9 +63,10 @@ a {
   font-size: 2.5rem !important;
 }
 
-.sidepic {
-  margin-left: 11%;
-}
+/* .sidepic {
+  width: 300px;
+  height: 300px; 
+} */
 
 .faq {
   padding: 6% 10%;
@@ -183,14 +184,33 @@ a {
 
 .aboutPage {
   text-align: center;
-  padding: 3% 2%;
+  padding: 4% 2%;
 }
 
 .aboutNav {
   margin: auto;
-  padding: 5% 2%;
+  padding: 5% 3%;
   line-height: 2rem;
   text-align: left;
+}
+
+.aboutNav, Row {
+  padding: 5% 5% !important;
+}
+
+.aboutdogpic {
+  width: 300px;
+  margin-left: 5%;
+}
+
+@media screen and (max-width: 600px ) {
+  .aboutdogpic {
+    width: fit-content;
+  }
+}
+
+iframe {
+  margin-left: 5%;
 }
 
 
