@@ -20,7 +20,7 @@ function Faq() {
                     that enhance the bond between animals and people. Kipu's Rescue is a 501(c)3 organization.</p>
 
                     <h6>2) Where is Kipu's Rescue located?</h6>
-                    <p>We are located at 200 Centre Street at the corner of Hester Street.</p>
+                    <p>We are located at 200 East Blue Street at the corner of Red Line Street.</p>
 
                     <h6>3) What are the closest subways?</h6>
                     <p>The closest subway lines are the N, Q, R, W, J, Z, or 6 to CANAL. You may also take the B, D to GRAND Street or the F, M to Broadway-Lafayette.</p>
@@ -71,7 +71,7 @@ function Faq() {
                      please visit the <a href="/volunteer"><strong><em>volunteer section</em></strong></a> of our website and sign up to become a volunteer.</p>
 
                     <h6>9) How do I relinquish a dog or cat?</h6>
-                    <p>Please email us at <strong><em> info@kipurescue.org</em></strong> or call us at <strong><em> 877-393-4448</em></strong>.</p>
+                    <p>Please email us at <strong><em> tashitigershark@gmail.com</em></strong> or call us at <strong><em> 877-393-4448</em></strong>.</p>
 
                     <h6>10) Do you take donations of pet supplies?</h6>
                     <p>Yes, we can accept certain pet supplies. We’re able to accept wet dog/cat food, wee-wee pads, linens (towels, sheets, blankets are great – please no pillows,
@@ -85,7 +85,7 @@ function Faq() {
                     <p>Due to the fact that we are such a small shelter with limited time and resources, we cannot accommodate school group visits.</p>
 
                     <h6>13) I found a dog. Can you help me find the owner?</h6>
-                    <p>Yes, please call us at 212-274-8511. We will arrange a time for you to bring the dog into Kipu's Rescue during business hours and we can scan for a microchip. </p>
+                    <p>Yes, please call us at 877-393-4448. We will arrange a time for you to bring the dog into Kipu's Rescue during business hours and we can scan for a microchip. </p>
 
 
                     <p>If you have a question that is not addressed here, please <a href="/about/#contact"><strong> Contact Us</strong></a> for more information.</p>

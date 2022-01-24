@@ -51,12 +51,10 @@ function Adoption () {
                 <div className="quote">
                             <img alt="petProfile" src="https://d17fnq9dkz9hgj.cloudfront.net/uploads/2018/04/Devon-Rex-Striped.jpg" />
 			 				<div className="quoteText">
-                                <p>” Ike is our little buddy. He is wherever the kids are. 
+                                <p>”t’s not always possible to do what we want to do, 
                                 
-                                We love this boy and the extra fun he brings to our family. 
-                                
-                                Adopting Ike was a great decision and we are so happy he is in our life.”</p>
-								<span className="bb-testimonial__author">Ike and Family</span>	
+                                but it’s important to believe in something before you actually do it."</p>
+								<span className="bb-testimonial__author">– Might Guy (Naruto)</span>	
 							</div>				
 				</div>
                 

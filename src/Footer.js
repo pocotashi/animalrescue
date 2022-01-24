@@ -17,10 +17,10 @@ function Footer(){
             <br/>
             Astoria NY 11103 
             <br/>
-            info@kipurescue.org
+            tashitigershark@gmail.com
 
             <br/>
-            kipu's Rescue is a 501(c)(3) nonprofit organization (EIN: 11-6101487).
+            kipu's Rescue is my project. You can reach me at 877-393-4448.
             </div>
             
             <div className="footer-signup">
