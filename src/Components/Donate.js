@@ -1,155 +1,133 @@
-import { useState , useEffect} from 'react';
-import {db} from "../firebase-config";
-import { addDoc, collection, query, onSnapshot, deleteDoc, doc } from "firebase/firestore"
+/** @format */
+
+import { useState, useEffect, useRef } from 'react';
 import Footer from '../Footer';
 import NavBar from '../Navbar';
-import {Button} from 'react-bootstrap';
+import { PayPalScriptProvider, PayPalButtons } from '@paypal/react-paypal-js';
 
+const DonateButton = ({ currency, amount }) => {
+	const amountRef = useRef(amount);
+	useEffect(() => {
+		amountRef.current = amount;
+	}, [amount]);
 
-function Donate () {
+	return (
+		<div>
+			<PayPalButtons
+				style={{ label: 'donate' }}
+				fundingSource='paypal'
+				createOrder={(data, actions) => {
+					return actions.order.create({
+						purchase_units: [
+							{
+								amount: {
+									value: amountRef.current,
+									breakdown: {
+										item_total: {
+											currency_code: currency,
+											value: amountRef.current,
+										},
+									},
+								},
+								items: [
+									{
+										name: "Kipu's Rescue",
+										description:
+											"All proceeds directly suport for animals' care and recovery.",
+										quantity: '1',
+										unit_amount: {
+											currency_code: currency,
+											value: amountRef.current,
+										},
+										category: 'DONATION',
+									},
+								],
+							},
+						],
+					});
+				}}
+			/>
+		</div>
+	);
+};
 
-
-    const [name, setName] = useState("");
-    const [email, setEmail] = useState("");
-    const [phone, setPhone] = useState("");
-    const [amount, setAmount] = useState("");
-    const [creditCard, setCreditCard] = useState("");
-    const [expire, setExpire] = useState("");
-    const [cvv, setCvv] = useState("");
-    const isEnabled = name.length > 0 && email.length > 0 && phone.length > 0 && amount.length > 0;
-
-
-
-    const [donation, setDonate] = useState([]);
-
-    const donationCollectionRef = collection(db, "donation");
-
-    const donateNow = async () => {
-
-        await addDoc(donationCollectionRef,
-            {
-                name: name,
-                email: email,
-                phone: Number(phone),
-                amount: Number(amount),
-                creditCardNumber: Number(creditCard),
-                expirationDate: (expire),
-                cvv: Number(cvv),
-            });
-        
-            
-          setName("");
-          setEmail("");
-          setPhone("");
-          setAmount("");
-          setCreditCard("");
-          setExpire("");
-          setCvv("");
-    };
-
-    const deleteDonate = async (id) => {
-
-        const donateDoc = doc(db, "donation", id)
-        await deleteDoc(donateDoc)
-
-    }
-
-    
-    useEffect(() => {
-
-        const data = query(donationCollectionRef);
-        const unsub = onSnapshot(data, (querySnapshot) => {
-          let donateArray = [];
-          querySnapshot.forEach((doc) => {
-            donateArray.push({...doc.data(), id: doc.id})
-          })
-        setDonate(donateArray);
-    });
-  
-    return () => unsub();
-  }, []);  
-
-    return (
-        <div>
-            <NavBar/>
-                <div className='donationForm'>
-                    <div className='form'>
-                        <h1>Your gift will change a pet’s life!</h1>
-
-                        <p>At Animal Haven, we work every day to find homes for dogs and cats in crisis. We're committed to providing the best possible care for their specific needs while they wait. You can create hope for them: your donation provides healthy food, comfortable bedding, vital enrichment, training and medical intervention. Donate today!</p>
-
-                        <label className='donationText'>One time Donation  <input type="checkbox" /></label>
-                        <label className='donationText'>Monthly Donation <input type="checkbox" /> </label> 
-                
-
-                        <div className='formPad'>
-                            <h3 >1. Gift Amount</h3>
-                            <label>
-                            <input type="number" placeholder='amount' value={amount} onChange={(event) => { setAmount(event.target.value); }}/>
-                            </label>
-                        </div>
-                
-                        <div className='formPad'>
-                            <h3>2. Billing Amount</h3>
-
-                                <div>
-                                    <label>Name
-                                        <input type="text" placeholder='name' value={name} onChange={(event) => { setName(event.target.value); }}/>
-                                    </label>
-                                
-                                    <label>Email
-                                        <input type="email" placeholder='email' value={email} onChange={(event) => { setEmail(event.target.value); }}/>
-                                    </label> 
-                                
-                                    <label>Phone
-                                        <input  type="number" placeholder='phone' value={phone} onChange={(event) => { setPhone(event.target.value); }}/>
-                                    </label> 
-                                </div>  
-                        </div>
-
-                        <div className='formPad'>
-                            <h3>3. Payment</h3>
-
-                            <div >
-                                <label>Credit card number
-                                    <input type="number" value={creditCard} onChange={(event) => { setCreditCard(event.target.value); }}/>
-                                </label>
-                            
-                                <label>Expiration date
-                                    <input type="date" value={expire} onChange={(event) => { setExpire(event.target.value); }}/>
-                                </label>
-                            
-                                <label>CVV
-                                    <input type="number" value={cvv} onChange={(event) => { setCvv(event.target.value); }}/>
-                                </label>
-                            </div>
-                        </div>
-
-                        <Button className="donateButton" onClick={donateNow} disabled={!isEnabled}><h2>Donate</h2></Button>
-                
-                        <div className="thankyou"><h1 >Thank You for your donation!</h1></div>
-                
-                    </div>
-           
-
-                    {/* {donation.map((donate) => {
-                        return (
-                            <div key={donate.id}>
-                                <h1>name: {donate.name}</h1>
-                                <h1>amount: {donate.amount}</h1>
-
-                                <button onClick={ ()=> {deleteDonate(donate.id)}}> delete info</button>
-
-                            </div>
-                        )
-                    })} */}
-
-
-                </div>
-            <Footer/>
-        </div>
-    )
+function DonateForm() {
+	const [amount, setAmount] = useState('5.00');
+	return (
+		<form className='DonateForm'>
+			<AmountPicker
+				onAmountChange={(e) => {
+					setAmount(e.target.value);
+				}}
+			/>
+			<DonateButton currency='USD' amount={amount} />
+		</form>
+	);
 }
 
+function AmountPicker({ onAmountChange }) {
+	return (
+		<fieldset onChange={onAmountChange}>
+			<legend>Donation Amount</legend>
+			<label>
+				<input type='radio' value='5.00' defaultChecked='true' name='amount' />
+				5.00
+			</label>
+			<label>
+				<input type='radio' value='10.00' name='amount' id='radio-6' />
+				10.00
+			</label>
+			<label>
+				<input type='radio' value='15.00' name='amount' id='radio-9' />
+				15.00
+			</label>
+			<label>
+				<input type='text' name='amount' />
+				Enter an amount
+			</label>
+		</fieldset>
+	);
+}
+
+function Donate() {
+	return (
+		<>
+			<NavBar />
+
+			<div className='aboutPage'>
+				<PayPalScriptProvider
+					options={{
+						'client-id':
+							'AQl7T--8BF0T18nVw82KAlDGjy2nDmJROIoIwsGa75Oo9LaKdTtGi1UNJCGn85hDBMHT923S_3dHAZeN',
+						components: 'buttons',
+						currency: 'USD',
+					}}>
+					<h1>Your gift will change a pet’s life!</h1>
+					<figure>
+						<img
+							src='https://placekitten.com/500/300'
+							alt='Kitty Looking Cute'
+						/>
+						<figcaption
+							className='donationForm'
+							style={{ backgroundColor: 'white' }}>
+							At Kipu's Rescue, we work every day to find homes for dogs and
+							cats in crisis. We're committed to providing the best possible
+							care for their specific needs while they wait. You can create hope
+							for them: your donation provides healthy food, comfortable
+							bedding, vital enrichment, training and medical intervention.
+							Donate today! All Donation proceeds to care of animals at Kipu's
+							Rescue{' '}
+						</figcaption>
+					</figure>
+
+					<h2>Make a secure Donation using PayPal</h2>
+					<DonateForm />
+				</PayPalScriptProvider>
+			</div>
+			<Footer />
+		</>
+	);
+}
 
 export default Donate;

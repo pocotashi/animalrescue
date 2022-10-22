@@ -437,6 +437,59 @@ textarea {
   text-align: center;
 }
 
+fieldset {
+  margin-bottom: 1em;
+}
+fieldset ul {
+  list-style-type: none;
+  padding-left: 0;
+}
+fieldset input[type="radio"] + label {
+  padding-left: 0.25em;
+}
+
+@keyframes rotation {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(359deg);
+  }
+}
+
+.DonateForm {
+  margin: 0 auto;
+  max-width: 600px;
+  min-height: 200px;
+}
+
+.DonateForm h1 {
+  text-align: center;
+}
+
+.DonateForm label {
+  display: block;
+}
+
+.DonateForm label > input {
+  margin-right: 0.5em;
+}
+
+h1,
+figure,
+figcaption {
+  text-align: center;
+}
+
+figure {
+  padding: 0;
+  margin: 0;
+}
+
+figure > img {
+  max-width: 100%;
+}
+
 /* ------------------ */
 
 
