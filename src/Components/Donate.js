@@ -1,9 +1,9 @@
 /** @format */
 
 import { useState, useEffect, useRef } from 'react';
-import Footer from '../Footer';
-import NavBar from '../Navbar';
+
 import { PayPalScriptProvider, PayPalButtons } from '@paypal/react-paypal-js';
+import { Container, Row, Col, Image } from 'react-bootstrap';
 
 const DonateButton = ({ currency, amount }) => {
 	const amountRef = useRef(amount);
@@ -14,7 +14,7 @@ const DonateButton = ({ currency, amount }) => {
 	return (
 		<div>
 			<PayPalButtons
-				style={{ label: 'donate' }}
+				style={{ label: 'donate', shape: 'pill' }}
 				fundingSource='paypal'
 				createOrder={(data, actions) => {
 					return actions.order.create({
@@ -54,7 +54,7 @@ const DonateButton = ({ currency, amount }) => {
 function DonateForm() {
 	const [amount, setAmount] = useState('5.00');
 	return (
-		<form className='DonateForm'>
+		<form className='form-inline'>
 			<AmountPicker
 				onAmountChange={(e) => {
 					setAmount(e.target.value);
@@ -67,23 +67,21 @@ function DonateForm() {
 
 function AmountPicker({ onAmountChange }) {
 	return (
-		<fieldset onChange={onAmountChange}>
+		<fieldset onChange={onAmountChange} className='pb-4'>
 			<legend>Donation Amount</legend>
 			<label>
-				<input type='radio' value='5.00' defaultChecked='true' name='amount' />
+				<input type='radio' value='5.00' defaultChecked='true' name='amount' />$
 				5.00
 			</label>
 			<label>
-				<input type='radio' value='10.00' name='amount' id='radio-6' />
-				10.00
+				<input type='radio' value='10.00' name='amount' id='radio-6' />$ 10.00
+			</label>
+			<label>
+				<input type='radio' value='15.00' name='amount' id='radio-9' />$ 15.00
 			</label>
 			<label>
 				<input type='radio' value='15.00' name='amount' id='radio-9' />
-				15.00
-			</label>
-			<label>
-				<input type='text' name='amount' />
-				Enter an amount
+				<input type='text' name='amount' placeholder='Enter an amount' />
 			</label>
 		</fieldset>
 	);
@@ -91,10 +89,8 @@ function AmountPicker({ onAmountChange }) {
 
 function Donate() {
 	return (
-		<>
-			<NavBar />
-
-			<div className='aboutPage'>
+		<div className='py-4 '>
+			<Container fluid='sm'>
 				<PayPalScriptProvider
 					options={{
 						'client-id':
@@ -102,11 +98,12 @@ function Donate() {
 						components: 'buttons',
 						currency: 'USD',
 					}}>
-					<h1>Your gift will change a pet’s life!</h1>
+					<h1 className='px-5'>Your gift will change a pet’s life!</h1>
 					<figure>
-						<img
+						<Image
 							src='https://placekitten.com/500/300'
 							alt='Kitty Looking Cute'
+							className='p-3'
 						/>
 						<figcaption
 							className='donationForm'
@@ -119,14 +116,18 @@ function Donate() {
 							Donate today! All Donation proceeds to care of animals at Kipu's
 							Rescue{' '}
 						</figcaption>
+						<h2>Make a secure Donation using PayPal</h2>
 					</figure>
-
-					<h2>Make a secure Donation using PayPal</h2>
-					<DonateForm />
+					<Container fluid='sm'>
+						<Row>
+							<Col xs={12} className='p-3'>
+								<DonateForm />
+							</Col>
+						</Row>
+					</Container>
 				</PayPalScriptProvider>
-			</div>
-			<Footer />
-		</>
+			</Container>
+		</div>
 	);
 }
 
