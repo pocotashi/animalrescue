@@ -3,131 +3,57 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
 import { db } from '../firebase-config';
-import {
-	addDoc,
-	collection,
-	updateDoc,
-	deleteDoc,
-	doc,
-	onSnapshot,
-	query,
-} from 'firebase/firestore';
+import { collection, onSnapshot, query } from 'firebase/firestore';
 import { Row, Col, Card, Container } from 'react-bootstrap';
 import SideComp from './Sidecomp';
+// import DogProfile, { dogs, dogsCollectionRef, setDogs } from './DogProfile';
 
-class LoginControl extends React.Component {
-	constructor(props) {
-		super(props);
-		this.handleLoginClick = this.handleLoginClick.bind(this);
-		this.handleLogoutClick = this.handleLogoutClick.bind(this);
-		this.state = { isLoggedIn: false };
-	}
-
-	handleLoginClick() {
-		this.setState({ isLoggedIn: true });
-	}
-
-	handleLogoutClick() {
-		this.setState({ isLoggedIn: false });
-	}
-
-	render() {
-		const isLoggedIn = this.state.isLoggedIn;
-		let button;
-
-		if (isLoggedIn) {
-			button = <LogoutButton onClick={this.handleLogoutClick} />;
-		} else {
-			button = <LoginButton onClick={this.handleLoginClick} />;
-		}
-
-		return (
-			<div>
-				<Greeting isLoggedIn={isLoggedIn} />
-				{button}
-			</div>
-		);
-	}
-}
-
-function UserGreeting(props) {
-	return <h1>Welcome back! You can make edits</h1>;
-}
-
-function GuestGreeting(props) {
-	return <h1>Please sign up to be an Admin.</h1>;
-}
-
-function Greeting(props) {
-	const isLoggedIn = props.isLoggedIn;
-	if (isLoggedIn) {
-		return (
-			<div>
-				<UserGreeting />
-			</div>
-		);
-	}
-	// return <GuestGreeting />;
-	return null;
-}
-
-function LoginButton(props) {
-	return (
-		<button className='btn btn-sm' onClick={props.onClick}>
-			.
-		</button>
-	);
-}
-
-function LogoutButton(props) {
-	return <button onClick={props.onClick}>Admin</button>;
-}
 function Dog() {
-	const [newName, setNewName] = useState('');
-	const [newAge, setNewAge] = useState();
-	const [newGender, setNewGender] = useState('');
-	const [newBreed, setNewBreed] = useState('');
-	const [newStatus, setNewStatus] = useState('available');
+	// const [newName, setNewName] = useState('');
+	// const [newAge, setNewAge] = useState();
+	// const [newGender, setNewGender] = useState('');
+	// const [newBreed, setNewBreed] = useState('');
+	// const [newStatus, setNewStatus] = useState('available');
 
 	const [dogs, setDogs] = useState([]);
 
 	const dogsCollectionRef = collection(db, 'dogs');
 
-	const createDog = async () => {
-		await addDoc(dogsCollectionRef, {
-			name: newName,
-			age: Number(newAge),
-			gender: newGender,
-			breed: newBreed,
-			status: newStatus,
-		});
+	// const createDog = async () => {
+	// 	await addDoc(dogsCollectionRef, {
+	// 		name: newName,
+	// 		age: Number(newAge),
+	// 		gender: newGender,
+	// 		breed: newBreed,
+	// 		status: newStatus,
+	// 	});
 
-		console.log(createDog);
-		console.log('are you working');
+	// 	console.log(createDog);
+	// 	console.log('are you working');
 
-		setNewName('');
-		setNewAge('');
-		setNewGender('');
-		setNewBreed('');
-		setNewStatus('');
-	};
+	// 	setNewName('');
+	// 	setNewAge('');
+	// 	setNewGender('');
+	// 	setNewBreed('');
+	// 	setNewStatus('');
+	// };
 
-	const updateDog = async (id, age) => {
-		const dogDoc = doc(db, 'dogs', id);
-		const newFields = { age: age + 1 };
-		await updateDoc(dogDoc, newFields);
-	};
+	// const updateDog = async (id, age) => {
+	// 	const dogDoc = doc(db, 'dogs', id);
+	// 	const newFields = { age: age + 1 };
+	// 	await updateDoc(dogDoc, newFields);
+	// };
 
-	const updateDogStatus = async (id, status) => {
-		const dogDoc = doc(db, 'dogs', id);
-		const newStats = { status: (status = 'adopted') };
-		await updateDoc(dogDoc, newStats);
-	};
+	// const updateDogStatus = async (id, status) => {
+	// 	const dogDoc = doc(db, 'dogs', id);
+	// 	const newStats = { status: (status = 'adopted') };
+	// 	await updateDoc(dogDoc, newStats);
+	// };
 
-	const deleteDog = async (id) => {
-		const dogDoc = doc(db, 'dogs', id);
-		await deleteDoc(dogDoc);
-	};
+	// const deleteDog = async (id) => {
+	// 	const dogDoc = doc(db, 'dogs', id);
+	// 	await deleteDoc(dogDoc);
+	// };
 
 	useEffect(() => {
 		const data = query(dogsCollectionRef);
@@ -153,8 +79,7 @@ function Dog() {
 					/>
 				</div>
 
-				<LoginControl />
-				<div>
+				{/* <div>
 					<input
 						placeholder='Name...'
 						value={newName}
@@ -192,7 +117,7 @@ function Dog() {
 					/>
 
 					<button onClick={createDog}> Create User</button>
-				</div>
+				</div> */}
 
 				<Container className='dogspage'>
 					<Row>
@@ -257,12 +182,15 @@ function Dog() {
 												<Card.Text>
 													<h3>Status: {dog.status}</h3>
 												</Card.Text>
+												<Card.Text>
+													<h3>Special Care: {dog.specialCare}</h3>
+												</Card.Text>
 
-												<div>
+												{/* <div>
 													<button
 														className='petbutton'
 														onClick={() => {
-															updateDog(dog.id, dog.age);
+															DogProfile.updateDog(dog.id, dog.age);
 														}}>
 														{' '}
 														increase age
@@ -270,7 +198,7 @@ function Dog() {
 													<button
 														className='petbutton'
 														onClick={() => {
-															deleteDog(dog.id);
+															DogProfile.deleteDog(dog.id);
 														}}>
 														{' '}
 														delete user
@@ -278,12 +206,12 @@ function Dog() {
 													<button
 														className='petbutton'
 														onClick={() => {
-															updateDogStatus(dog.id);
+															DogProfile.updateDogStatus(dog.id);
 														}}>
 														{' '}
 														Adopt ME
 													</button>
-												</div>
+												</div> */}
 											</Card.Body>
 										</div>
 									</Card>

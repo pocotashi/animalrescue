@@ -2,61 +2,53 @@
 
 import { useState, useEffect } from 'react';
 import { db } from '../firebase-config';
-import {
-	addDoc,
-	collection,
-	updateDoc,
-	deleteDoc,
-	doc,
-	onSnapshot,
-	query,
-} from 'firebase/firestore';
+import { collection, onSnapshot, query } from 'firebase/firestore';
 import { Row, Col, Card, Container } from 'react-bootstrap';
 import SideComp from './Sidecomp';
 
 function Cat() {
-	const [newName, setNewName] = useState('');
-	const [newAge, setNewAge] = useState();
-	const [newGender, setNewGender] = useState('');
-	const [newBreed, setNewBreed] = useState('');
-	const [newStatus, setNewStatus] = useState('available');
+	// const [newName, setNewName] = useState('');
+	// const [newAge, setNewAge] = useState();
+	// const [newGender, setNewGender] = useState('');
+	// const [newBreed, setNewBreed] = useState('');
+	// const [newStatus, setNewStatus] = useState('available');
 
 	const [cats, setCats] = useState([]);
 
 	const catsCollectionRef = collection(db, 'cats');
 
-	const createCat = async () => {
-		await addDoc(catsCollectionRef, {
-			name: newName,
-			age: Number(newAge),
-			gender: newGender,
-			breed: newBreed,
-			status: newStatus,
-		});
+	// const createCat = async () => {
+	// 	await addDoc(catsCollectionRef, {
+	// 		name: newName,
+	// 		age: Number(newAge),
+	// 		gender: newGender,
+	// 		breed: newBreed,
+	// 		status: newStatus,
+	// 	});
 
-		setNewName('');
-		setNewAge('');
-		setNewGender('');
-		setNewBreed('');
-		setNewStatus('');
-	};
+	// 	setNewName('');
+	// 	setNewAge('');
+	// 	setNewGender('');
+	// 	setNewBreed('');
+	// 	setNewStatus('');
+	// };
 
-	const updateCat = async (id, age) => {
-		const catDoc = doc(db, 'cats', id);
-		const newFields = { age: age + 1 };
-		await updateDoc(catDoc, newFields);
-	};
+	// const updateCat = async (id, age) => {
+	// 	const catDoc = doc(db, 'cats', id);
+	// 	const newFields = { age: age + 1 };
+	// 	await updateDoc(catDoc, newFields);
+	// };
 
-	const updateCatStatus = async (id, status) => {
-		const catDoc = doc(db, 'cats', id);
-		const newStats = { status: (status = 'adopted') };
-		await updateDoc(catDoc, newStats);
-	};
+	// const updateCatStatus = async (id, status) => {
+	// 	const catDoc = doc(db, 'cats', id);
+	// 	const newStats = { status: (status = 'adopted') };
+	// 	await updateDoc(catDoc, newStats);
+	// };
 
-	const deleteCat = async (id) => {
-		const catDoc = doc(db, 'cats', id);
-		await deleteDoc(catDoc);
-	};
+	// const deleteCat = async (id) => {
+	// 	const catDoc = doc(db, 'cats', id);
+	// 	await deleteDoc(catDoc);
+	// };
 
 	useEffect(() => {
 		const data = query(catsCollectionRef);
@@ -82,7 +74,7 @@ function Cat() {
 					/>
 				</div>
 
-				<div>
+				{/* <div>
 					<input
 						placeholder='Name...'
 						value={newName}
@@ -120,7 +112,7 @@ function Cat() {
 					/>
 
 					<button onClick={createCat}> Create User</button>
-				</div>
+				</div> */}
 
 				<Container className='dogspage'>
 					<Row>
@@ -185,8 +177,11 @@ function Cat() {
 												<Card.Text>
 													<h3>Status: {cat.status}</h3>
 												</Card.Text>
+												<Card.Text>
+													<h3>Special Care: {cat.specialCare}</h3>
+												</Card.Text>
 
-												<div>
+												{/* <div>
 													<button
 														className='petbutton'
 														onClick={() => {
@@ -211,7 +206,7 @@ function Cat() {
 														{' '}
 														Adopt ME
 													</button>
-												</div>
+												</div> */}
 											</Card.Body>
 										</div>
 									</Card>
