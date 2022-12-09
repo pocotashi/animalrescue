@@ -1,5 +1,5 @@
 /** @format */
-
+import React from 'react';
 import SideComp from './Sidecomp';
 
 import { Nav, Container, Row, Col } from 'react-bootstrap';
@@ -30,7 +30,7 @@ function Adoption() {
 											<img
 												className='petHeadshot'
 												alt='petProfile'
-												src='https://picturecorrect-wpengine.netdna-ssl.com/wp-content/uploads/2013/04/dog-photography-tips.jpg'
+												src='./Images/dogImages/dog5.WebP'
 											/>{' '}
 										</Nav.Link>
 

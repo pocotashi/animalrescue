@@ -1,6 +1,6 @@
 /** @format */
 
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { db } from '../firebase-config';
 import { collection, onSnapshot, query } from 'firebase/firestore';
 import { Row, Col, Card, Container } from 'react-bootstrap';
@@ -143,7 +143,7 @@ function Cat() {
 							</p>
 
 							<div className='specialCare'>
-								<h6 className='specialCareText'> ❤️ = Requires special care</h6>
+								<h6 className='specialCareText'> <span role="img" aria-label='heart emoji depicting special care need'>❤️ </span>= Requires special care</h6>
 							</div>
 						</Col>
 					</Row>

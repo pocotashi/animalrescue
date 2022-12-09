@@ -148,7 +148,7 @@ function Dog() {
 							</p>
 
 							<div className='specialCare'>
-								<h6 className='specialCareText'> ❤️ = Requires special care</h6>
+								<h6 className='specialCareText'> <span role="img" aria-label='heart emoji depicting special care need'>❤️ </span> = Requires special care</h6>
 							</div>
 						</Col>
 					</Row>
