@@ -1,6 +1,6 @@
 /** @format */
 
-import { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 
 import { PayPalScriptProvider, PayPalButtons } from '@paypal/react-paypal-js';
 import { Container, Row, Col, Image } from 'react-bootstrap';

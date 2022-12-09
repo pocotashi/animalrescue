@@ -1,6 +1,5 @@
 /** @format */
-
-import { Container, Row, Col } from 'react-bootstrap';
+import React from 'react';
 
 function Support() {
 	return (
@@ -14,9 +13,7 @@ function Support() {
 			</div>
 
 			<div className='support'>
-				{/* <Container>
-                    <Row>
-                        <Col xs={8}> */}
+				
 				<div className='supportTitle'>
 					<h1>Suport Kipu's Rescue</h1>
 
@@ -77,13 +74,7 @@ function Support() {
 						</em>
 					</a>
 				</p>
-				{/* </Col> */}
-
-				{/* <Col xs={4}>
-                            <img width={"400"} height={"400"}  alt="support pic" src="https://usserviceanimals.org/blog/wp-content/uploads/2019/08/1530083188458-768x599.png"/>
-                        </Col> */}
-				{/* </Row>
-                </Container> */}
+				
 			</div>
 		</div>
 	);

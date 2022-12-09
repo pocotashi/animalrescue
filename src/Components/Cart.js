@@ -1,6 +1,6 @@
 /** @format */
 
-import { useState, useEffect } from 'react';
+import React , { useState, useEffect } from 'react';
 import { db } from '../firebase-config';
 import {
 	collection,
@@ -11,7 +11,7 @@ import {
 	onSnapshot,
 } from 'firebase/firestore';
 
-import { Row, Col, Card, Container, Nav } from 'react-bootstrap';
+import { Nav } from 'react-bootstrap';
 
 function Cart() {
 	const [newItem, setNewItem] = useState('');
