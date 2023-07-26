@@ -3,7 +3,7 @@
 import './App.css';
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { Route, Routes } from 'react-router-dom';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
 import NavBar from './Navbar';
 import Footer from './Footer';
@@ -35,6 +35,7 @@ function App() {
 	return (
 		<div>
 			<NavBar />
+			<BrowserRouter>
 			<Routes>
 				<Route path='/' element={<Home />} />
 
@@ -62,6 +63,7 @@ function App() {
 				<Route path='/createDogs' element={<DogProfile />} />
 				<Route path='/createCats' element={<CatProfile />} />
 			</Routes>
+			</BrowserRouter>
 			<Footer />
 		</div>
 	);
